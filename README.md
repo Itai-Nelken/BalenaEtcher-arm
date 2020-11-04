@@ -6,7 +6,7 @@ balena-etcher v1.5.109 compiled from source for armhf and arm64 for the Raspberr
 
 ## Installation:
 you can install this version of Etcher in [Pi-Apps](https://github.com/Botspot/pi-apps)
-![Get it on Pi-Apps](/screenshots/avilable-on-pi-apps.png) 
+#![Get it on Pi-Apps](/screenshots/avilable-on-pi-apps.png) 
 or install manually: download the .deb file for your system architecture, (armhf for 32bit, and arm64 for 64bit) and open it with the package installer or open terminal in the directory where th .deb is and type 
 ```sh-session
 $ sudo dpkg -i <the file name.deb>

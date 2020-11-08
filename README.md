@@ -12,7 +12,7 @@ or install manually: download the .deb file for your system architecture, (armhf
 $ sudo dpkg -i <the file name.deb>
 ```
 ## compile
-follow instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
+follow the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 
 ## Uninstallation
 If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), the you can also uninstall it from there.

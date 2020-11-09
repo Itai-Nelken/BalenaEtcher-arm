@@ -12,7 +12,11 @@ or install manually: download the .deb file for your system architecture, (armhf
 $ sudo dpkg -i <the file name.deb>
 ```
 ## compile
-follow the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
+use my [compile script](compile-etcher_v1.5.110.sh). to run it, dow nload the [script](compile-etcher_v1.5.110.sh), open terminal in the directory where the script is, and type:
+```sh-session
+$ sudo chmod +x compile-etcher_v1.5.110.sh && ./compile-etcher_v1.5.110.sh
+```
+alternatley compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
 ```sh-session
 $ git checkout v1.5.63

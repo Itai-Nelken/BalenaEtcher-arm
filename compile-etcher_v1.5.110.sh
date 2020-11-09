@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this will take around 30 minutes on a pi 4on stock clock speed. a fan or at least a heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
+clear
+echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this will    take around 30 minutes on a pi 4 on stock clock speed. a fan or at least a      heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
   read answer
   if [ "$answer" == n ];then
    echo "exiting in 5 seconds"
@@ -53,6 +54,11 @@ echo ".deb file will be in /etcher/dist/
 echo "exiting in 10 seconds..."
 sleep 10
 exit
+
+
+
+
+
 
 
 

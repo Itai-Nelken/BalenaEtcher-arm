@@ -10,24 +10,27 @@ echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this
   fi
   if [ "$answer" == y ];then
    
-   echo "installing dependencies..."
+   echo "$(tput setaf 3)installing dependencies...$(tput sgr 0)"
    sudo apt-get install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm    libsecret-1-dev jq python2.7-dev pip python-setuptools libudev-dev
    sudo apt-get install ruby-dev
    sudo gem install fpm -v 1.10.2 --no-document
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
    sudo apt-get install -y nodejs
-
-   echo "cloning etcher repo and checking out realease (v1.5.110)"
+   sleep 4
+   clear
+   
+   echo "$(tput setaf 3)cloning etcher repo and checking out realease (v1.5.110)$(tput sgr 0)"
    git clone --recursive https://github.com/balena-io/etcher
    cd etcher
    git checkout v1.5.110
 
-   echo "installing requirements..."
+   echo "$(tput setaf 3)installing requirements...$(tput sgr 0)"
    pip install -r requirements.txt
 
-   echo "setting up and installing NPM modules..."
+  echo "$(tput setaf 3)setting up and installing NPM modules...$(tput sgr 0)"
    make electron-develop
-   
+   sleep 4
+   clear
    echo -n "do you want to run a test of etcher to see if compile worked? [y/n] "
   read answer
   if [ "$answer" == n ];then
@@ -51,9 +54,14 @@ clear
 echo ".deb file will be in /etcher/dist/
   
 
-echo "exiting in 10 seconds..."
+echo "$(tput setaf 3)exiting in 10 seconds... $(tput sgr 0)"
 sleep 10
 exit
+
+
+
+
+
 
 
 

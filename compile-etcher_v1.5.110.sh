@@ -1,7 +1,7 @@
 #!/bin/bash
 
 clear
-echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this will    take around 30 minutes on a pi 4 on stock clock speed. a fan or at least a      heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
+echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this will    take around 30 minutes on a pi 4 on stock clock speed and consume almost all    memory and cpu. a fan or at least a heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
   read answer
   if [ "$answer" == n ];then
    echo "exiting in 5 seconds"
@@ -33,14 +33,14 @@ echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this
    clear
    echo -n "do you want to run a test of etcher to see if compile worked? [y/n] "
   read answer
-  if [ "$answer" == n ];then
-   echo "clode etcher window to continue to packaging."
+  if [ "$answer" == y ];then
+   echo "$(tput setaf 3)close etcher window to continue to packaging.$(tput sgr 0)"
    sleep 5
    npm start
   fi
-  if [ "$answer" == y ];then
+  if [ "$answer" == n ];then
    
-   echo "building & packaging etcher into a .deb file..."
+   echo "$(tput setaf 3)building & packaging etcher into a .deb file...$(tput sgr 0)"
    sed -i 's/tiffutil/#tiffutil/g' Makefile 
    sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb"/g' scripts/resin/electron/build.sh
    USE_SYSTEM_FPM="true" make electron-build
@@ -51,17 +51,10 @@ echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this
   
 sleep 5
 clear
-echo ".deb file will be in /etcher/dist/
-  
-
+echo ".deb file will be in /etcher/dist/"
 echo "$(tput setaf 3)exiting in 10 seconds... $(tput sgr 0)"
 sleep 10
 exit
-
-
-
-
-
 
 
 

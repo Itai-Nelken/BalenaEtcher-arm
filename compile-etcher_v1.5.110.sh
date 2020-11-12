@@ -10,6 +10,7 @@ echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this
   fi
   if [ "$answer" == y ];then
    
+   cd ~/Downloads
    echo "$(tput setaf 3)installing dependencies...$(tput sgr 0)"
    sudo apt-get install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm    libsecret-1-dev jq python2.7-dev pip python-setuptools libudev-dev
    sudo apt-get install ruby-dev

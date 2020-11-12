@@ -9,7 +9,7 @@ you can install this version of Etcher in Pi-Apps (click the badge bellow for mo
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)
 or install manually: download the .deb file for your system architecture from the [releases](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm), and open it with the package installer or open terminal in the directory where the .deb is and type 
 ```sh-session
-$ sudo dpkg -i <the file name.deb>
+$ sudo dpkg -i the-file-name.deb
 ```
 ## compile
 use my [compile script](compile-etcher_v1.5.110.sh), this script simply runs the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it, download the [script](compile-etcher_v1.5.110.sh), open terminal in the directory where the script is, and type:

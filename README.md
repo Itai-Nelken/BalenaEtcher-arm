@@ -1,5 +1,5 @@
 # Etcher-arm-32-64
-balena-etcher v1.5.109 & v1.5.110 compiled from [source](https://github.com/balena-io/etcher) for armhf and arm64 for the RaspberryPi and other arm based linux computers.
+balena-etcher v1.5.109 and later compiled from [source](https://github.com/balena-io/etcher) for armhf and arm64 for the [Raspberry Pi](https://www.raspberrypi.org) and other [ARM](https://en.wikipedia.org/wiki/ARM_architecture) based [linux](https://en.wikipedia.org/wiki/Linux) computers.
 
 ![Etcher on rpi screenshot](/screenshots/etcher.png)
 
@@ -11,8 +11,14 @@ or install manually: download the .deb file for your system architecture from th
 ```sh-session
 $ sudo dpkg -i the-file-name.deb
 ```
+but replace
+```
+the-file-name.deb
+```
+with the name of the .deb file you downloaded.
+
 ## compile
-use my [compile script](compile-etcher_v1.5.110.sh), this script simply runs the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it, download the [script](compile-etcher_v1.5.110.sh), open terminal in the directory where the script is, and type:
+use my [compile script](compile-etcher_v1.5.110.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it, download the [script](compile-etcher_v1.5.110.sh), open terminal in the directory where the script is, and type:
 ```sh-session
 $ sudo chmod +x compile-etcher_v1.5.110.sh && ./compile-etcher_v1.5.110.sh
 ```
@@ -32,4 +38,3 @@ to manually uninstall, type in terminal the following:
 ```sh-session
 $ sudo apt purge -y balena-etcher-electron
 ```
-

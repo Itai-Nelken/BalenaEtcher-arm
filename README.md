@@ -5,9 +5,11 @@ balena-etcher v1.5.109 and later compiled from [source](https://github.com/balen
 
 
 ## Install
-you can install this version of Etcher in Pi-Apps (click the badge bellow for more info about pi-apps) <br> 
+It is recommended to install this version of Etcher from Pi-Apps (click the badge bellow for more info about pi-apps) <br> 
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)  
-or install manually: download the .deb file for your system architecture from the [releases](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm), and open it with the package installer if you have one or open terminal in the directory where the .deb is and type 
+but if you prefer, you can install manually: 
+1) download the .deb file for your system architecture from the [releases](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm).
+2) open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb is and type 
 ```sh-session
 $ sudo dpkg -i the-file-name.deb
 ```
@@ -18,7 +20,7 @@ use my [compile script](compile-etcher_v1.5.110.sh), this script simply runs the
 ```sh-session
 $ sudo chmod +x compile-etcher_v1.5.110.sh && ./compile-etcher_v1.5.110.sh
 ```
-alternatley compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
+alternately compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
 ```sh-session
 $ git checkout v1.5.63

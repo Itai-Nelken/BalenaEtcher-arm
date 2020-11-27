@@ -27,9 +27,9 @@ $ git checkout v1.5.63
 ```
 with this line:
 ```sh-session
-$ git checkout v1.5.110
+$ git checkout v1.5.111
 ```
-so you compile v1.5.110 (newest) instead of v1.5.63.
+so you compile v1.5.111 (newest) instead of v1.5.63.
 
 ## Uninstall
 If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), the you can also uninstall it from there.

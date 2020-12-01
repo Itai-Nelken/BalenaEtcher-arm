@@ -41,5 +41,5 @@ $ sudo apt purge -y balena-etcher-electron
 ## Credits
 Big thanks to futurejones for finding a way to compile Etcher for ARM.
 
-- RaspberryPi Forums [thread](https://www.raspberrypi.org/forums/viewtopic.php?f=62&t=255205&start=25).
-- futurejones github repo for [balena-etcher-arm](https://github.com/futurejones/balena-etcher-arm)
+- [RaspberryPi Forums thread](https://www.raspberrypi.org/forums/viewtopic.php?f=62&t=255205&start=25).
+- [futurejones github repo for balena-etcher-arm](https://github.com/futurejones/balena-etcher-arm)

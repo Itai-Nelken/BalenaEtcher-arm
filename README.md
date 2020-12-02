@@ -33,7 +33,7 @@ so you compile v1.5.111 (newest) instead of v1.5.63.
 
 ## Uninstall
 If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), the you can also uninstall it from there.
-to manually uninstall, type in terminal the following:
+to manually uninstall, type the following in terminal :
 ```sh-session
 $ sudo apt purge -y balena-etcher-electron
 ```

@@ -9,7 +9,7 @@ echo -n "this script will compile and package etcher v1.5.112 for arm32/64, this
    exit
   fi
   if [ "$answer" == y ];then
-   
+
    cd ~/Downloads
    echo "$(tput setaf 3)installing dependencies...$(tput sgr 0)"
    sudo apt-get install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm    libsecret-1-dev jq python2.7-dev pip python-setuptools libudev-dev jq
@@ -19,7 +19,7 @@ echo -n "this script will compile and package etcher v1.5.112 for arm32/64, this
    sudo apt-get install -y nodejs
    sleep 4
    clear
-   
+
    echo "$(tput setaf 3)cloning etcher repo and checking out realease (v1.5.112)$(tput sgr 0)"
    git clone --recursive https://github.com/balena-io/etcher
    cd etcher
@@ -40,25 +40,24 @@ echo -n "this script will compile and package etcher v1.5.112 for arm32/64, this
    npm start
   fi
   if [ "$answer" == n ];then
-   
-   echo "$(tput setaf 3)building & packaging etcher into a .deb file...$(tput sgr 0)"
+
+   echo "$(tput setaf 3)continuing...$(tput sgr 0)"
+
+  fi
+
+  fi
+
+echo "$(tput setaf 3)building & packaging etcher into a .deb file...$(tput sgr 0)"
    sed -i 's/tiffutil/#tiffutil/g' Makefile 
    sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb"/g' scripts/resin/electron/build.sh
    USE_SYSTEM_FPM="true" make electron-build
-   
-  fi
-   
-  fi
-  
+
 sleep 5
 clear
 echo ".deb file will be in /etcher/dist/"
 echo "$(tput setaf 3)exiting in 10 seconds... $(tput sgr 0)"
 sleep 10
 exit
-
-
-
 
 
 

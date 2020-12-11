@@ -12,7 +12,7 @@ echo -n "this script will compile and package etcher v1.5.112 for arm32/64, this
    
    cd ~/Downloads
    echo "$(tput setaf 3)installing dependencies...$(tput sgr 0)"
-   sudo apt-get install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm    libsecret-1-dev jq python2.7-dev pip python-setuptools libudev-dev
+   sudo apt-get install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm    libsecret-1-dev jq python2.7-dev pip python-setuptools libudev-dev jq
    sudo apt-get install -y ruby-dev
    sudo gem install fpm -v 1.10.2 --no-document
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -

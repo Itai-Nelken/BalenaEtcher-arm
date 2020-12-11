@@ -1,7 +1,7 @@
 #!/bin/bash
 
 clear
-echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this will    take around 30 minutes on a pi 4 on stock clock speed and consume almost all    memory and cpu. a fan or at least a heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
+echo -n "this script will compile and package etcher v1.5.112 for arm32/64, this will    take around 30 minutes on a pi 4 on stock clock speed and consume almost all    memory and cpu. a fan or at least a heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
   read answer
   if [ "$answer" == n ];then
    echo "exiting in 5 seconds"
@@ -13,17 +13,17 @@ echo -n "this script will compile and package etcher v1.5.110 for arm32/64, this
    cd ~/Downloads
    echo "$(tput setaf 3)installing dependencies...$(tput sgr 0)"
    sudo apt-get install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm    libsecret-1-dev jq python2.7-dev pip python-setuptools libudev-dev
-   sudo apt-get install ruby-dev
+   sudo apt-get install -y ruby-dev
    sudo gem install fpm -v 1.10.2 --no-document
    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
    sudo apt-get install -y nodejs
    sleep 4
    clear
    
-   echo "$(tput setaf 3)cloning etcher repo and checking out realease (v1.5.110)$(tput sgr 0)"
+   echo "$(tput setaf 3)cloning etcher repo and checking out realease (v1.5.112)$(tput sgr 0)"
    git clone --recursive https://github.com/balena-io/etcher
    cd etcher
-   git checkout v1.5.111
+   git checkout v1.5.112
 
    echo "$(tput setaf 3)installing requirements...$(tput sgr 0)"
    pip install -r requirements.txt

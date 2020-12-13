@@ -16,9 +16,9 @@ $ sudo dpkg -i the-file-name.deb
 but replace `the-file-name.deb` with the name of the .deb file you downloaded.
 
 ## compile
-use my [compile script](compile-etcher_v1.5.110.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it, download the [script](compile-etcher_v1.5.111.sh), open terminal in the directory where the script is, and type:
+use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it, download the [script](compile-etcher_v1.5.112.sh), open terminal in the directory where the script is, and type:
 ```sh-session
-$ sudo chmod +x compile-etcher_v1.5.110.sh && ./compile-etcher_v1.5.110.sh
+$ sudo chmod +x compile-etcher_v1.5.112.sh; ./compile-etcher_v1.5.112.sh
 ```
 alternately compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
@@ -27,9 +27,9 @@ $ git checkout v1.5.63
 ```
 with this line:
 ```sh-session
-$ git checkout v1.5.111
+$ git checkout v1.5.112
 ```
-so you compile v1.5.111 (newest) instead of v1.5.63.
+so you compile v1.5.112 (newest) instead of v1.5.63.
 
 ## Uninstall
 If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), the you can also uninstall it from there.

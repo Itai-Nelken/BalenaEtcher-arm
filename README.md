@@ -16,9 +16,9 @@ $ sudo dpkg -i the-file-name.deb
 but replace `the-file-name.deb` with the name of the .deb file you downloaded.
 
 ## compile
-use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it, download the [script](compile-etcher_v1.5.112.sh), open terminal in the directory where the script is, and type:
+use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it simply run the line bellow in terminal:
 ```sh-session
-$ sudo chmod +x compile-etcher_v1.5.112.sh; ./compile-etcher_v1.5.112.sh
+$ wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.112.sh | bash
 ```
 alternately compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 

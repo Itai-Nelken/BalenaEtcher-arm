@@ -11,25 +11,41 @@ but if you prefer, you can install manually:
 1) download the .deb file for your system architecture from the [releases](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm).
 2) open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb is and type 
 ```sh-session
-$ sudo dpkg -i the-file-name.deb
+sudo dpkg -i the-file-name.deb
 ```
 but replace `the-file-name.deb` with the name of the .deb file you downloaded.
 
 ## compile
-use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to run it simply run the line bellow in terminal:
+use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to download and run it simply run the line bellow in terminal:
 ```sh-session
-$ wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.112.sh | bash
+wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.112.sh | bash
 ```
 alternately compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
-```sh-session
-$ git checkout v1.5.63
+```sh
+git checkout 1.5.63
 ```
 with this line:
-```sh-session
-$ git checkout v1.5.113
+```sh
+git checkout 1.5.113
 ```
 so you compile v1.5.113 (newest) instead of v1.5.63.
+>**NOTE:**<br>you can put any version you want instead of `1.5.113`, refer to the table bellow.
+
+### use my test script
+my test script for now only asks you what version you want to compile and build, in the future it will have a gui using YAD.
+<br><b>to run:</b><br>download and run the script:
+```bash
+wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/test-stuff/compile-etcher.sh | bash
+```
+this command will download and execute my script. the script will be in the directory the Terminal was when running the command.<br>
+### recommended version numbers for the script:
+version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 
+------------ | ------------- | ------------- | -------------
+1.5.63 | very old and outdated version but tested and working reliably.<br> use only when other versions don't work , not recommended. | working | not tested,<br>will probably work.
+1.5.111 | has the newer features. | working | working
+1.5.112 | [changelog](https://github.com/balena-io/etcher/blob/master/CHANGELOG.md#v15112). | working | not tested,<br> probably works.
+1.5.113 | newest version | not tested | not tested
 
 ## Uninstall
 If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), the you can also uninstall it from there.

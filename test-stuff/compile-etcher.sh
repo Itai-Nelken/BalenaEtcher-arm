@@ -2,7 +2,7 @@
 
 #ask if user wants to continue
 clear
-echo -n "this script will compile and package etcher v1.5.112 for arm32/64, this will    take around 30 minutes on a pi 4 on stock clock speed and consume almost all    memory and cpu. a fan or at least a heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
+echo -n "this script will compile and package etcher v1.5.112 for arm32/64, this will take around 30 minutes on a pi 4 on stock clock speed and consume almost all memory and cpu during some parts. a fan or at least a heatsink is recommended for the pi 4. Do you want to continue? [y/n] "
 read answer
 if [ "$answer" == n ];then
  echo "exiting in 5 seconds"
@@ -19,16 +19,17 @@ fi
 echo "Enter etcher version to compile (e.g 1.5.112): "  
 read VERSION  
 
-if ["$VERSION" == ""];then
- $VERSION=1.5.112
-fi
+
+#if ["$VERSION" == ""];then
+# $VERSION=1.5.112
+#fi
 
 echo "version compiled will be v$VERSION"
 
-echo -n "install dependencies (required unless already installed (e.g running script 2nd time)"
+echo -n "install dependencies (required unless already installed (e.g running script 2nd time) [y/n]"
  read answer
  if [ "$answer" == n ];then
- echo "dependencies won't be installed. BEWARE: compiling and packaging will fail unless already installed [y/n]"
+ echo "dependencies won't be installed. BEWARE: compiling and packaging will fail unless already installed"
 fi
 if [ "$answer" == y ];then
  cd ~/Downloads
@@ -43,7 +44,7 @@ if [ "$answer" == y ];then
  clear
 fi
 
-echo "$(tput setaf 3)cloning etcher repo and checking out realease (v1.5.112)$(tput sgr 0)"
+echo "$(tput setaf 3)cloning etcher repo and checking out realease (your input)$(tput sgr 0)"
 git clone --recursive https://github.com/balena-io/etcher
 cd etcher
 git checkout $VERSION

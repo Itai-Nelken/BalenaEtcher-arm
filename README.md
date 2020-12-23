@@ -23,11 +23,11 @@ wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/co
 alternately compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
 ```sh
-git checkout 1.5.63
+git checkout v1.5.63
 ```
 with this line:
 ```sh
-git checkout 1.5.113
+git checkout v1.5.113
 ```
 so you compile v1.5.113 (newest) instead of v1.5.63.
 >**NOTE:**<br>you can put any version you want instead of `1.5.113`, refer to the [table bellow](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).

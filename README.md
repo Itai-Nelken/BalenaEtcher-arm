@@ -36,7 +36,7 @@ so you compile v1.5.113 (newest) instead of v1.5.63.
 my test script for now only asks you what version you want to compile and build, in the future it will have a gui using YAD.
 <br><b>to run:</b><br>download and run the script:
 ```bash
-wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/test-stuff/compile-etcher.sh | bash
+wget https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/test-stuff/compile-etcher.sh; bash compile-etcher.sh
 ```
 this command will download and execute my script. the script will be in the directory the Terminal was when running the command.<br>
 ### recommended version numbers for the script:

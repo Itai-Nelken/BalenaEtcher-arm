@@ -42,7 +42,7 @@ this command will download and execute my script. the script will be in the dire
 ### recommended version numbers for the script:
 version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 
 ------------ | ------------- | ------------- | -------------
-1.5.63 | very old and outdated version but tested and working reliably.<br> use only when other versions don't work , not recommended. | working | not tested,<br>will probably work.
+1.5.63 | very old and outdated version but tested and working reliably.<br>not recommended, use only when other versions don't work. | working | not tested,<br>will probably work.
 1.5.111 | has the newer features. | working | working
 1.5.112 | [changelog](https://github.com/balena-io/etcher/blob/master/CHANGELOG.md#v15112). | working | not tested,<br> probably works.
 1.5.113 | newest version | not tested | not tested

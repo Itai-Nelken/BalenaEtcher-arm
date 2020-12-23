@@ -11,9 +11,10 @@ but if you prefer, you can install manually:
 1) download the .deb file for your system architecture from the [releases](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm).
 2) open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb is and type 
 ```sh
-sudo dpkg -i the-file-name.deb
+sudo apt install -y --fix-broken the-file-name.deb
 ```
-but replace `the-file-name.deb` with the name of the .deb file you downloaded.
+but replace `the-file-name.deb` with the name of the .deb file you downloaded (or path to it).
+>**explanation:**<br> the `-y`flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
 
 ## compile
 use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to download and run it simply run the line bellow in terminal:

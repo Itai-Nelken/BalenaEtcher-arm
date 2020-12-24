@@ -14,7 +14,7 @@ but if you prefer, you can install manually:
 sudo apt install -y --fix-broken the-file-name.deb
 ```
 but replace `the-file-name.deb` with the name of the .deb file you downloaded (or path to it).
->**explanation:**<br> the `-y`flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
+>**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
 
 ## compile
 use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to download and run it simply run the line bellow in terminal:

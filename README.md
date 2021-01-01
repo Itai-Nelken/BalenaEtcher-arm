@@ -1,5 +1,6 @@
 # <img src="/screenshots/balena-etcher.png" alt="drawing" width="60"/>Etcher-arm-32-64
 balena-etcher v1.5.109 and later compiled from [source](https://github.com/balena-io/etcher) for armhf and arm64 for the [Raspberry Pi](https://www.raspberrypi.org) and other [ARM](https://en.wikipedia.org/wiki/ARM_architecture) based [linux](https://en.wikipedia.org/wiki/Linux) computers.
+>NOTE: this only works on Debian and Debian based OS's like Ubuntu.
 
 ![Etcher on rpi screenshot](/screenshots/etcher.png)
 
@@ -8,7 +9,7 @@ balena-etcher v1.5.109 and later compiled from [source](https://github.com/balen
 It is recommended to install this version of Etcher from Pi-Apps (click the badge bellow for more info about pi-apps) <br> 
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)  
 but if you prefer, you can install manually: 
-1) download the .deb file for your system architecture from the [releases](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm).
+1) download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm).
 2) open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb is and type 
 ```sh
 sudo apt install -y --fix-broken the-file-name.deb
@@ -46,7 +47,7 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64
 1.5.63 | very old and outdated version but tested and working reliably.<br>not recommended, use only when other versions don't work. | working | not tested,<br>will probably work.
 1.5.111 | has the newer features. | working | working
 1.5.112 | [changelog](https://github.com/balena-io/etcher/blob/master/CHANGELOG.md#v15112). | working | not tested,<br> probably works.
-1.5.113 | newest version | not tested | not tested
+1.5.113 | newest version | working | not tested
 
 ## Uninstall
 If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), the you can also uninstall it from there.

@@ -18,9 +18,9 @@ but replace `the-file-name.deb` with the name of the .deb file you downloaded (o
 >**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
 
 ## compile
-use my [compile script](compile-etcher_v1.5.112.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to download and run it simply run the line bellow in terminal:
+use my [compile script](compile-etcher_v1.5.113.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to download and run it simply run the line bellow in terminal:
 ```sh
-wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.112.sh | bash
+wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.113.sh | bash
 ```
 alternately compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 

@@ -38,7 +38,7 @@ if [ "$answer" == y ];then
 fi
 
 #ask for version to compile  
-echo "Enter etcher version to compile (e.g 1.5.112): "  
+echo "Enter etcher version to compile (e.g 1.5.113): "  
 read VERSION  
 
 #if no user input, set to v1.5.112 (doesn't work yet)
@@ -105,6 +105,16 @@ sleep 5
 clear
 
 echo ".deb file will be in ~/Downloads/etcher/dist/"
+
+echo -n "do you want to delete this script? [y/n] "
+read answer
+if [ "$answer" == y ];then
+rm compile-etcher.sh
+fi
+if [ "$answer" == n ];then
+ echo "$(tput setaf 3)the script WILL NOT be deleted$(tput sgr 0)"
+fi
+
 echo "$(tput setaf 3)exiting in 10 seconds... $(tput sgr 0)"
 sleep 10
 exit

@@ -54,7 +54,7 @@ echo "$(tput setaf 3)building & packaging etcher into a .deb file...$(tput sgr 0
 
 sleep 5
 clear
-echo ".deb file will be in /etcher/dist/"
+echo ".deb file will be in ~/Downloads/etcher/dist/"
 echo "$(tput setaf 3)exiting in 10 seconds... $(tput sgr 0)"
 sleep 10
 exit

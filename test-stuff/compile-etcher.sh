@@ -38,12 +38,12 @@ if [ "$answer" == y ];then
 fi
 
 #ask for version to compile  
-echo "Enter etcher version to compile (e.g 1.5.113): "  
+echo "Enter etcher version to compile (e.g 1.5.115): "  
 read VERSION  
 
-#if no user input, set to v1.5.112 (doesn't work yet)
+#if no user input, set to v1.5.115 (doesn't work yet, might have fixed it)
 if [[ "$VERSION" == "" ]];then
- VERSION=1.5.112
+ VERSION="1.5.115"
 fi
 
 #tell user what version will be compiled
@@ -59,7 +59,7 @@ if [ "$answer" == y ];then
  cd ~/Downloads
  echo "$(tput setaf 3)installing dependencies...$(tput sgr 0)"
  sudo apt update
- sudo apt-get install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev jq
+ sudo apt-get install -y curl git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev jq
  sudo apt-get install -y ruby-dev
  sudo gem install fpm -v 1.10.2 --no-document
  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -

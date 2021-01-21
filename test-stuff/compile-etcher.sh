@@ -41,10 +41,10 @@ fi
 echo "Enter etcher version to compile (e.g 1.5.115): "  
 read VERSION  
 
-#if no user input, set to v1.5.115 (doesn't work yet, might have fixed it)
-if [[ "$VERSION" == "" ]];then
- VERSION="1.5.115"
-fi
+#if no user input, set to v1.5.115 (doesn't work yet)
+#if [[ "$VERSION" == "" ]];then
+ #VERSION="1.5.115"
+#fi
 
 #tell user what version will be compiled
 echo "version compiled will be v$VERSION"

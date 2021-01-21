@@ -72,7 +72,7 @@ fi
 echo "$(tput setaf 3)cloning etcher repo and checking out realease (your input)$(tput sgr 0)"
 git clone --recursive https://github.com/balena-io/etcher
 cd etcher
-git checkout $VERSION
+git checkout v$VERSION
 
 #install requirements
 echo "$(tput setaf 3)installing requirements...$(tput sgr 0)"

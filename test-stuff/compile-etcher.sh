@@ -52,10 +52,10 @@ echo "version compiled will be v$VERSION"
 #ask user to install dependencies and install/skip 
 echo -n "install dependencies (required unless already installed (e.g running script 2nd time)), **answering no isn't recommended** [y/n]"
  read answer
- if [ "$answer" == n ];then
+ if [[ "$answer" == n ]];then
  echo "dependencies won't be installed. BEWARE: compiling and packaging will fail unless dependencies are already installed"
 fi
-if [ "$answer" == y ];then
+if [[ "$answer" == y ]];then
  cd ~/Downloads
  echo "$(tput setaf 3)installing dependencies...$(tput sgr 0)"
  sudo apt update
@@ -108,10 +108,10 @@ echo ".deb file will be in ~/Downloads/etcher/dist/"
 
 echo -n "do you want to delete this script? [y/n] "
 read answer
-if [ "$answer" == y ];then
+if [[ "$answer" == y ]];then
 rm ~/compile-etcher.sh
 fi
-if [ "$answer" == n ];then
+if [[ "$answer" == n ]];then
  echo "$(tput setaf 3)the script WILL NOT be deleted$(tput sgr 0)"
 fi
 

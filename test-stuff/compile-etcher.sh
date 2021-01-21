@@ -109,7 +109,7 @@ echo ".deb file will be in ~/Downloads/etcher/dist/"
 echo -n "do you want to delete this script? [y/n] "
 read answer
 if [ "$answer" == y ];then
-rm compile-etcher.sh
+rm ~/compile-etcher.sh
 fi
 if [ "$answer" == n ];then
  echo "$(tput setaf 3)the script WILL NOT be deleted$(tput sgr 0)"

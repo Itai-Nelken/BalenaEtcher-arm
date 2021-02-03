@@ -35,7 +35,7 @@ so you compile v1.5.116 (newest) instead of v1.5.63.
 >**NOTE:**<br>you can put any version you want instead of `1.5.116`, refer to the [table bellow](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
 
 ### use my test script
-my test script for now only asks you what version you want to compile and build, in the future it will have a gui using YAD.
+my test script for now only asks you what version you want to compile and build, in the future it will have a gui using YAD or Dialog.
 <br><b>to run:</b><br>download and run the script:
 ```bash
 wget https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/test-stuff/compile-etcher.sh; bash compile-etcher.sh

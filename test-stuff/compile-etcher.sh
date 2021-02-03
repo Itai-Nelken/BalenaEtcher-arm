@@ -41,7 +41,7 @@ fi
 echo "Enter etcher version to compile (e.g 1.5.116): "  
 read VERSION  
 
-#if no user input, set to v1.5.115 (doesn't work yet)
+#if no user input, set to v1.5.116 (doesn't work yet)
 #if [[ "$VERSION" == "" ]];then
  #VERSION="1.5.116"
 #fi
@@ -62,7 +62,7 @@ if [[ "$answer" == y ]];then
  sudo apt-get install -y curl git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev jq
  sudo apt-get install -y ruby-dev
  sudo gem install fpm -v 1.10.2 --no-document
- curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+ curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
  sudo apt-get install -y nodejs
  sleep 4
  clear

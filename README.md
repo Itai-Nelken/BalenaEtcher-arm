@@ -18,9 +18,9 @@ but replace `the-file-name.deb` with the name of the .deb file you downloaded (o
 >**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
 
 ## compile
-use my [compile script](compile-etcher_v1.5.113.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to download and run it simply run the line bellow in terminal:
+use my [compile script](compile-etcher_v1.5.116.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). to download and run it simply run the line bellow in terminal:
 ```sh
-wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.113.sh | bash
+wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.116.sh | bash
 ```
 alternately compile, build, and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
@@ -29,10 +29,10 @@ git checkout v1.5.63
 ```
 with this line:
 ```sh
-git checkout v1.5.113
+git checkout v1.5.116
 ```
-so you compile v1.5.113 (newest) instead of v1.5.63.
->**NOTE:**<br>you can put any version you want instead of `1.5.113`, refer to the [table bellow](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
+so you compile v1.5.116 (newest) instead of v1.5.63.
+>**NOTE:**<br>you can put any version you want instead of `1.5.116`, refer to the [table bellow](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
 
 ### use my test script
 my test script for now only asks you what version you want to compile and build, in the future it will have a gui using YAD.
@@ -45,9 +45,20 @@ this command will download and execute my script. the script will be in the dire
 version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 
 ------------ | ------------- | ------------- | -------------
 1.5.63 | very old and outdated version but tested and working reliably.<br>not recommended, use only when other versions don't work. | working | not tested,<br>will probably work.
-1.5.111 | has the newer features. | working | working
-1.5.112 | [changelog](https://github.com/balena-io/etcher/blob/master/CHANGELOG.md#v15112). | working | not tested,<br> probably works.
-1.5.113 | newest version | working | not tested
+1.5.116 |  | works | not tested
+<details>
+<summary>Rest of the table above (click to expand)</summary>
+<br>
+  
+| version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
+------------ | ------------- | ------------- | ------------- |
+1.5.111 | has the newer features. | working | working |
+1.5.112 | [changelog](https://github.com/balena-io/etcher/blob/master/CHANGELOG.md#v15112). | working | not tested,<br> probably works. |
+1.5.113 | newest version | working | not tested |
+1.5.114 |  | works | not tested |
+1.5.115 |  | works | not tested |
+
+</details>
 
 ## Uninstall
 If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), the you can also uninstall it from there.

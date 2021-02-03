@@ -38,12 +38,12 @@ if [ "$answer" == y ];then
 fi
 
 #ask for version to compile  
-echo "Enter etcher version to compile (e.g 1.5.115): "  
+echo "Enter etcher version to compile (e.g 1.5.116): "  
 read VERSION  
 
 #if no user input, set to v1.5.115 (doesn't work yet)
 #if [[ "$VERSION" == "" ]];then
- #VERSION="1.5.115"
+ #VERSION="1.5.116"
 #fi
 
 #tell user what version will be compiled

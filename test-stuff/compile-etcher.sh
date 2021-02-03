@@ -37,6 +37,9 @@ if [ "$answer" == y ];then
  sleep 1
 fi
 
+#changeto downloads folder
+cd ~/Downloads
+
 #ask for version to compile  
 echo "Enter etcher version to compile (e.g 1.5.116): "  
 read VERSION  

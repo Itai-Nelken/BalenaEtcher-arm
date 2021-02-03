@@ -21,6 +21,7 @@ echo -n "this script will compile and package etcher v1.5.115 for arm32/64, this
    clear
 
    echo "$(tput setaf 3)cloning etcher repo and checking out realease (v1.5.115)$(tput sgr 0)"
+   cd ~/Downloads
    git clone --recursive https://github.com/balena-io/etcher
    cd etcher
    git checkout v1.5.116
@@ -29,7 +30,7 @@ echo -n "this script will compile and package etcher v1.5.115 for arm32/64, this
    pip install -r requirements.txt
 
   echo "$(tput setaf 3)setting up and installing NPM modules...$(tput sgr 0)"
-   make electron-develop
+    make electron-develop
    sleep 4
    clear
    echo -n "do you want to run a test of etcher to see if compile worked? [y/n] "

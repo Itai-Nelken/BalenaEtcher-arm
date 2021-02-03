@@ -23,7 +23,7 @@ echo -n "this script will compile and package etcher v1.5.115 for arm32/64, this
    echo "$(tput setaf 3)cloning etcher repo and checking out realease (v1.5.115)$(tput sgr 0)"
    git clone --recursive https://github.com/balena-io/etcher
    cd etcher
-   git checkout v1.5.115
+   git checkout v1.5.116
 
    echo "$(tput setaf 3)installing requirements...$(tput sgr 0)"
    pip install -r requirements.txt

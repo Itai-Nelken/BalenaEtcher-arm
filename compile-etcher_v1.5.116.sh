@@ -15,7 +15,7 @@ echo -n "this script will compile and package etcher v1.5.115 for arm32/64, this
    sudo apt-get install -y curl git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev jq
    sudo apt-get install -y ruby-dev
    sudo gem install fpm -v 1.10.2 --no-document
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+   curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
    sudo apt-get install -y nodejs
    sleep 4
    clear

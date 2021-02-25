@@ -42,10 +42,10 @@ wget https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/test-st
 ```
 this command will download and execute my script. the script will be in the directory the Terminal was when running the command.<br>
 ### recommended version numbers for the script:
-version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 
------------- | ------------- | ------------- | -------------
-1.5.63 | very old and outdated version but tested and working reliably.<br>not recommended, use only when other versions don't work. | working | not tested,<br>will probably work.
-1.5.116 |  | works | not tested
+version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
+------------ | ------------- | ------------- | ------------- |
+1.5.63 | very old and outdated version but tested and working reliably.<br>not recommended, use only when other versions don't work. | working | not tested,<br>will probably work. |
+1.5.116 |  | works | works |
 <details>
 <summary>Rest of the table above (click to expand)</summary>
 <br>
@@ -57,7 +57,6 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64
 | 1.5.113 | newest version | working | working |
 | 1.5.114 |  | works | works |
 | 1.5.115 |  | works | works |
-| 1.5.116 |  | works | works |
 
 </details>
 

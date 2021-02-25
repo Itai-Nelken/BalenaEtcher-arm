@@ -51,12 +51,13 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64
 <br>
   
 | version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
------------- | ------------- | ------------- | ------------- |
-1.5.111 | has the newer features. | working | working |
-1.5.112 | [changelog](https://github.com/balena-io/etcher/blob/master/CHANGELOG.md#v15112). | working | working |
-1.5.113 | newest version | working | working |
-1.5.114 |  | works | not tested |
-1.5.115 |  | works | not tested |
+| ------------ | ------------- | ------------- | ------------- |
+| 1.5.111 | has the newer features. | working | working |
+| 1.5.112 | [changelog](https://github.com/balena-io/etcher/blob/master/CHANGELOG.md#v15112). | working | working |
+| 1.5.113 | newest version | working | working |
+| 1.5.114 |  | works | works |
+| 1.5.115 |  | works | works |
+| 1.5.116 |  | works | works |
 
 </details>
 

@@ -9,7 +9,7 @@ balena-etcher v1.5.109 and later compiled from [source](https://github.com/balen
 It is recommended to install this version of Etcher from Pi-Apps (click the badge bellow for more info about pi-apps) <br> 
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)  
 but if you prefer, you can install manually: 
-1) download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases) (armhf is 32bit arm, and arm64 is 64bit arm).
+1) download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armhf is 32bit arm, and arm64 is 64bit arm).
 2) open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb is and type 
 ```sh
 sudo apt install -y --fix-broken the-file-name.deb

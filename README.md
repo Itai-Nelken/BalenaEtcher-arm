@@ -22,7 +22,7 @@ Use my [compile script](compile-etcher_v1.5.116.sh), this script simply runs the
 ```sh
 wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.116.sh | bash
 ```
-Alternately compile, build and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
+Alternatively compile, build and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
 ```sh
 git checkout v1.5.63

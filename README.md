@@ -14,7 +14,7 @@ but if you prefer, you can install it manually:
 ```sh
 sudo apt install -y --fix-broken the-file-name.deb
 ```
-but replace `the-file-name.deb` with the name of the .deb file you downloaded (or path to it).
+but replace `the-file-name.deb` with the name of the .deb file you downloaded or path to it (E.G. ~/Downloads/balena-etcher-electron_1.5.116+37769efb_armv7l.deb) .
 >**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
 
 ## compile

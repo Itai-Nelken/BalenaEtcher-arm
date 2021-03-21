@@ -11,7 +11,7 @@ It's recommended that you install this version of Etcher from Pi-Apps (click the
 but if you prefer, you can install it manually: 
 1) download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armhf is 32bit arm and arm64 is 64bit arm).
 2) open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 
-```sh
+```bash
 sudo apt install -y --fix-broken the-file-name.deb
 ```
 but replace `the-file-name.deb` with the name of the .deb file you downloaded or path to it (E.G. ~/Downloads/balena-etcher-electron_1.5.116+37769efb_armv7l.deb) .
@@ -19,16 +19,16 @@ but replace `the-file-name.deb` with the name of the .deb file you downloaded or
 
 ## compile
 Use my [compile script](compile-etcher_v1.5.116.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). To download and run it, simply run the line below in terminal:
-```sh
+```bash
 wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.116.sh | bash
 ```
 Alternatively compile, build and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
-```sh
+```bash
 git checkout v1.5.63
 ```
 with this line:
-```sh
+```bash
 git checkout v1.5.116
 ```
 so you compile v1.5.116 (newest) instead of v1.5.63.
@@ -61,9 +61,8 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
 </details>
 
 ## Uninstall
-If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), then you can also uninstall it from there.
-However to manually uninstall, type the following in terminal :
-```sh-session
+If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), then you can also uninstall it from there.If you want to manually uninstall,run the following in terminal:
+```bash
 $ sudo apt purge balena-etcher-electron
 ```
 

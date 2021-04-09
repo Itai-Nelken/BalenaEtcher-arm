@@ -81,6 +81,7 @@ function install-depends() {
             if [[ "$answer" == "nvm" ]]; then
                 install-nvm || error "Failed to install nvm!"
                 nvm install node --latest-npm || error "nvm failed to install node.js and npm!"
+                npm install -g npm@6.14.8 || error "Failed to install npm 6.14.8 (required for building etcher)!"
                 break
             elif [[ "$answer" == "nodesource" ]]; then
                 warning-sleep "WARNING: using THIS method to install Node.js is KNOWN to BREAK SYSTEM PERMISSIONS!" 2
@@ -115,6 +116,36 @@ function install-depends() {
 if [ ! -z "$(cat /proc/cpuinfo | grep ARMv6)" ];then
   error "armv6 CPU not supported!"
 fi
+
+#check if arch is arm
+ARCH="$(uname -m)"
+if [[ "$ARCH" == "armv7l" ]] || [[ "$ARCH" == "armhf" ]] || [[ "$ARCH" == "arm64" ]] || [[ "$ARCH" == "aarch64" ]]; then
+    if [ ! -z "$(file "$(readlink -f "/sbin/init")" | grep 64)" ];then
+        ARCH="arm64"
+    elif [ ! -z "$(file "$(readlink -f "/sbin/init")" | grep 32)" ];then
+        ARCH="armhf"
+    else
+        error "Can't detect OS architecture! something is very wrong!"
+    fi
+else
+    error "Unsuported architecture! this script is only intended to be run on linux arm devices."
+fi
+while true; do
+  echo -ne "This script will compile and package etcher for arm32/64,\nthis will take around 30 minutes on a pi 4b 4gb on stock clock speeds booting from a samsung evo+ 32gb sd card and consume almost all memory and cpu.\nA fan or at least a heatsink is recommended.\nWARNING: THIS SCRIPT WON'T UNINSTALL THE DEPENDENCIES IT INSTALLS!\nDo you want to continue [y/n]? "
+  sleep 0.5
+  read answer
+  if [[ "$answer" =~ [nN] ]]; then
+    echo "exiting in 2 seconds..."
+    sleep 2
+    exit
+    break #in case exit fails (very unlikely)
+  elif [[ "$answer" =~ [yY] ]]; then
+    true
+    break
+  else
+    echo "invalid answer '$answer'! please try again."
+  fi
+done
 
 #install all the dependencies
 install-depends
@@ -182,6 +213,7 @@ DEBNAME="$(basename $DIR/etcher/dist/balena-etcher-electron*.deb)"
 sleep 1
 clear -x
 echo "The deb is in \"$DIR/etcher/dist/$DEBNAME\"."
-echo "install it with \"sudo apt -f install ./$DIR/etcher/dist/$DEBNAME\""
+echo "install it with \"sudo apt -f install .$DIR/etcher/dist/$DEBNAME\""
 sleep 2
+echo "DONE!"
 exit 0

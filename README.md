@@ -20,7 +20,7 @@ but replace `the-file-name.deb` with the name of the .deb file you downloaded or
 ## compile
 Use my [compile script](compile-etcher_v1.5.117.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). To download and run it, simply run the line below in terminal:
 ```bash
-wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.117.sh | bash
+wget -q https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.117.sh; bash compile-etcher_v1.5.117.sh; rm compile-etcher_v1.5.117.sh 
 ```
 Alternatively compile, build and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 

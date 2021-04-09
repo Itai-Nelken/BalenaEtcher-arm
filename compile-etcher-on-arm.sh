@@ -55,8 +55,8 @@ function pkg-manage() {
 function install-nvm() {
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 }
 
 function install-node() {
@@ -72,6 +72,8 @@ function install-node() {
 function install-depends() {
     pkg-manage install "$DEPENDS" || error "Failed to install dependencies!"
     sudo gem install fpm -v 1.10.2 --no-document #note: must be v1.10.2 NOT v1.11.0
+    sleep 1
+    clear -x
     if ! command -v node >/dev/null ; then
         while true; do
             echo -ne "Node.js and npm aren't installed but required,\ndo you want to install them with nvm (recommended) or with apt from the nodesource repo (NOT RECOMENDED!, KNOWN TO BREAK SYSTEM PERMISSIONS!) [nvm/nodesource]?"
@@ -107,11 +109,6 @@ function install-depends() {
 }
 
 
-
-
-
-
-
 #####things start to get done here#####
 #check that system is compatible
 #is CPU armv6?
@@ -128,7 +125,7 @@ while true; do
     echo -ne "Enter full path to the directory where you want to build etcher:\n"
     read -r DIR
     if [ ! -d $DIR ]; then
-        echo -e "\e[1mdirectory does not exist, please try again\e[21m"
+        echo -e "\e[1mdirectory does not exist, please try again\e[0m"
     else
         echo -e "\e[1mEtcher will be built and packaged here: $DIR\e[21"
         break

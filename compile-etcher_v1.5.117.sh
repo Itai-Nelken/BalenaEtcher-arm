@@ -69,10 +69,7 @@ function compile-etcher() {
     exit 1
   fi
 
-  if command -v node >/dev/null ; then
-    NODE=1
-  fi
-  if [[ $NODE == 1 ]]; then
+  if ! command -v node >/dev/null ; then
     echo "Node.js and npm are needed."
     echo -n "do you want to install them using 'nvm' (recommended) or the nodesource repo (known to break system permissions!) [nvm/nodesource]?"
     read answer

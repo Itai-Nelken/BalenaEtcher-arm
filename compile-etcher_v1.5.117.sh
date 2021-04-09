@@ -75,7 +75,7 @@ function compile-etcher() {
   if [[ $NODE == 1 ]]; then
     if ! command -v nvm >/dev/null ; then
       install-node
-    elsatest-npm || eche
+    else
       #nvm install v15.12.0 --lo "Failed to install node.js with existing nvm!" && sleep 1 && exit 1
       true
     fi

@@ -127,7 +127,7 @@ while true; do
     if [ ! -d $DIR ]; then
         echo -e "\e[1mdirectory does not exist, please try again\e[0m"
     else
-        echo -e "\e[1mEtcher will be built and packaged here: $DIR\e[21"
+        echo -e "\e[1mEtcher will be built and packaged here: $DIR\e[0m"
         break
     fi
 done

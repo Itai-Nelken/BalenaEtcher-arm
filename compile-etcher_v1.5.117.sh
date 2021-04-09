@@ -73,11 +73,16 @@ function compile-etcher() {
     NODE=1
   fi
   if [[ $NODE == 1 ]]; then
-    if ! command -v nvm >/dev/null ; then
+    echo "Node.js and npm are needed."
+    echo -n "do you want to install them using 'nvm' (recommended) or the nodesource repo (known to break system permissions!) [nvm/nodesource]?"
+    read answer
+    if [[ $answer == "nvm" ]]; then
       install-node
+    elif [[ $answer == "nodesource" ]]; then
+      install-node-from-nodesource
     else
-      #nvm install v15.12.0 --lo "Failed to install node.js with existing nvm!" && sleep 1 && exit 1
-      true
+      echo "invalid answer."
+      exit 1
     fi
   fi
 

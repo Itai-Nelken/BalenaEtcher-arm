@@ -17,10 +17,16 @@ sudo apt install -y --fix-broken the-file-name.deb
 but replace `the-file-name.deb` with the name of the .deb file you downloaded or path to it (E.G. ~/Downloads/balena-etcher-electron_1.5.116+37769efb_armv7l.deb) .
 >**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
 
-## compile
-Use my [compile script](compile-etcher_v1.5.117.sh), this script simply runs the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md). To download and run it, simply run the line below in terminal:
+## compile etcher yourself
+
+Use my compile scripts, they simply run the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md).
+the first script compiles the newest version (1.5.117), you can run it by copying and pasting the following line in terminal:
 ```bash
 wget -q https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.117.sh; bash compile-etcher_v1.5.117.sh; rm compile-etcher_v1.5.117.sh 
+```
+the second script asks you what version you want to compile, you can run it by copying and pasting the following line in terminal:
+```bash
+wget -qO- https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher-on-arm.sh; bash compile-etcher-on-arm.sh; rm compile-etcher-on-arm.sh
 ```
 Alternatively compile, build and package manually with the instructions [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md)
 but replace this line: 
@@ -34,13 +40,6 @@ git checkout v1.5.117
 so you compile v1.5.117 (newest) instead of v1.5.63.
 >**NOTE:**<br>you can put any version you want instead of `1.5.117`, refer to the [table below](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
 
-### use my test script
-My test script for now only asks you what version you want to compile and build, in the future it will have a gui using YAD or Dialog.
-<br><b>to run:</b><br>download and run the script:
-```bash
-wget https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/test-stuff/compile-etcher.sh; bash compile-etcher.sh
-```
-This command will download and execute my script. The script will be in the directory the Terminal was when running the command.<br>
 ### recommended version numbers for the script:
 version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
 ------------ | ------------- | ------------- | ------------- |

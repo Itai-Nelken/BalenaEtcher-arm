@@ -20,18 +20,21 @@ function install-node-from-nodesource() {
 }
 
 function install-node() {
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash || error "Failed to install nvm!"
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  if [[ -f "$HOME/.bashrc" ]]; then
-    source ~/.bashrc
-  fi
-  if [[ "$ARCH" == "armhf" ]]; then
-    sed -i 's/^  nvm_echo "${NVM_ARCH}"/  NVM_ARCH=armv7l ; nvm_echo "${NVM_ARCH}"/g' "$NVM_DIR/nvm.sh"
-  fi
-  chmod +x $NVM_DIR/nvm.sh
-  nvm install v15.12.0 --latest-npm || install-node-from-nodesource || echo "failed to install node.js and npm!" && sleep 1 && exit 1
+  echo "please run: wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash"
+  echo "and then run this script again"
+  exit
+  #curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash || error "Failed to install nvm!"
+  #export NVM_DIR="$HOME/.nvm"
+  #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  #if [[ -f "$HOME/.bashrc" ]]; then
+  #  source ~/.bashrc
+  #fi
+  #if [[ "$ARCH" == "armhf" ]]; then
+  #  sed -i 's/^  nvm_echo "${NVM_ARCH}"/  NVM_ARCH=armv7l ; nvm_echo "${NVM_ARCH}"/g' "$NVM_DIR/nvm.sh"
+  #fi
+  #chmod +x $NVM_DIR/nvm.sh
+  #nvm install v15.12.0 --latest-npm || install-node-from-nodesource || echo "failed to install node.js and npm!" && sleep 1 && exit 1
 }
 
 function compile-etcher() {
@@ -72,8 +75,9 @@ function compile-etcher() {
   if [[ $NODE == 1 ]]; then
     if ! command -v nvm >/dev/null ; then
       install-node
-    else
-      nvm install v15.12.0 --latest-npm || echo "Failed to install node.js with existing nvm!" && sleep 1 && exit 1
+    elsatest-npm || eche
+      #nvm install v15.12.0 --lo "Failed to install node.js with existing nvm!" && sleep 1 && exit 1
+      true
     fi
   fi
 

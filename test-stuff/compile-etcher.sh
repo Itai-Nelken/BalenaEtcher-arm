@@ -3,10 +3,9 @@
 #check if CPU is ARM (32bit or 64bit)
 ARCH=$(uname -m)
 if [ "${ARCH}" != "aarch64" ]; then
-  
   #check if CPU is ARM 32bit
   ARCH=$(uname -m)
-  if [ "${ARCH}" != "armv7l" ] || [[ "$ARCH" != "armhf" ]]; then
+  if [[ "${ARCH}" != "armv7l" ]]; then
    echo "your cpu architecture isn't ARM, this script is only intended for arm cpu's"
    echo "exiting in 5 seconds..."
    sleep 5; exit

@@ -69,7 +69,7 @@ function compile-etcher() {
     exit 1
   fi
 
-  if ! command -v node >/dev/null ; then
+  if command -v node >/dev/null ; then
     NODE=1
   fi
   if [[ $NODE == 1 ]]; then

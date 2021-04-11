@@ -202,8 +202,34 @@ done
 ##patch build files##
 # disable tiffutil in the Makefile as this is a Mac only app and will cause the build to fail
 sed -i 's/tiffutil/#tiffutil/g' Makefile  || error "Failed to patch Makefile!"
-# restrict output to .deb package only to save build time
-sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script"
+
+sleep 1
+clear -x
+while true; do
+    echo -ne "\e[1mDo you want to build a .(d)eb, a (A)ppimage or both [d/A/b]?\e[0m"
+    read answer
+    if [[ "$answer" =~ [dD] ]]; then
+    echo -n "patching build.sh to build only a .deb..."
+    #restrict output to .deb package only to save build time
+    sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script to only build a deb!"
+    echo "done"
+    break
+    elif [[ "$answer" =~ [Aa] ]]; then
+    echo -n "patching build.sh to build only a AppImage..."
+    #restrict output to .AppImage package only to save build time
+    sed -i 's/TARGETS="deb rpm appimage"/TARGETS="appimage"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script to only build a AppImage!"
+    echo "done"
+    break
+    elif [[ "$answer" =~ [bB] ]]; then
+    echo -n "patching build.sh to build both a .deb and AppImage..."
+    sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb appimage"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script to build both a deb and a AppImage!"
+    echo "done"
+    break
+    else
+        echo -e "\e[31minvalid answer \"$answer\"! please try again.\e[0m"
+    fi
+done
+
 ##compile and build etcher##
 # use USE_SYSTEM_FPM="true" to force the use of the installed FPM version
 USE_SYSTEM_FPM="true" make electron-build  || error "Failed to run \"USE_SYSTEM_FPM="true" make electron-buil\"!"

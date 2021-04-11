@@ -6,16 +6,18 @@ balena-etcher v1.5.109 and later compiled from [source](https://github.com/balen
 
 
 ## Install
-It's recommended that you install this version of Etcher from Pi-Apps (click the badge below for more info about pi-apps) <br> 
+there are 3 ways to get this version of etcher:
+1) [RECOMENDED] Use Pi-Apps (click the badge below for more info about pi-apps) <br> 
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)  
-but if you prefer, you can install it manually: 
-1) download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armhf is 32bit arm and arm64 is 64bit arm).
-2) open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 
-```bash
-sudo apt install -y --fix-broken the-file-name.deb
-```
-but replace `the-file-name.deb` with the name of the .deb file you downloaded or path to it (E.G. ~/Downloads/balena-etcher-electron_1.5.116+37769efb_armv7l.deb) .
->**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
+2) install it manually: 
+  - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armhf is 32bit arm and arm64 is 64bit arm).
+  - open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 
+  ```bash
+  sudo apt install -y --fix-broken the-file-name.deb
+  ```
+  but replace `the-file-name.deb` with the name of the .deb file you downloaded or path to it (E.G. ~/Downloads/balena-etcher-electron_1.5.116+37769efb_armv7l.deb) .
+  >**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
+3) Use the great `apt` repo for the Raspberry Pi by [**@chunky-milk**](https://github.com/chunky-milk/): https://chunky-milk.github.io/raspbian-addons/
 
 ## compile etcher yourself
 

@@ -234,12 +234,25 @@ done
 # use USE_SYSTEM_FPM="true" to force the use of the installed FPM version
 USE_SYSTEM_FPM="true" make electron-build  || error "Failed to run \"USE_SYSTEM_FPM="true" make electron-buil\"!"
 
-#get the finished deb's name
-DEBNAME="$(basename $DIR/etcher/dist/balena-etcher-electron*.deb)"
-sleep 1
-clear -x
-echo "The deb is in \"$DIR/etcher/dist/$DEBNAME\"."
-echo "install it with \"sudo apt -f install .$DIR/etcher/dist/$DEBNAME\""
+#get the finished output's name
+if [[ "$out" == "deb" ]]; then
+    OUTNAME="$(basename $DIR/etcher/dist/balena-etcher-electron*.deb)"
+    sleep 1
+    clear -x
+    echo "The deb is in \"$DIR/etcher/dist/$OUTNAME\"."
+    echo "install it with \"sudo apt -f install ./$DIR/etcher/dist/$OUTNAME\""
+elif [[ "$out" == "appimage" ]]; then
+    OUTNAME="$(basename $DIR/etcher/dist/balena-etcher-electron*.AppImage)"
+    sleep 1
+    clear -x
+    echo "The AppImage is in \"$DIR/etcher/dist/$OUTNAME\"."
+elif [[ "$out" == "all" ]]; then
+    DEBNAME="$(basename $DIR/etcher/dist/balena-etcher-electron*.deb)"
+    OUTNAME="$(basename $DIR/etcher/dist/balena-etcher-electron*.AppImage)"
+    echo "The deb is in \"$DIR/etcher/dist/$DEBNAME\""
+    echo -e "The AppImage is in \"$DIR/etcher/dist/$OUTNAME\"\n"
+    echo "Install the deb with \"sudo apt -f install .$DIR/etcher/dist/$OUTNAME\""
+fi
 sleep 2
 echo "DONE!"
 exit 0

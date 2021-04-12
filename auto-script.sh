@@ -85,8 +85,8 @@ if [[ "$ARCH" == "armv7l" ]] || [[ "$ARCH" == "armhf" ]] || [[ "$ARCH" == "arm64
 else
     error "Unsuported architecture! this script is only intended to be run on linux arm devices."
 fi
-#local=$(cat local_version.txt)
-local="v1.5.116" #newest: v1.5.117
+local=$(cat local_version.txt)
+#local="v1.5.116" #newest: v1.5.117
 echo "last saved version is: $local"
 release=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep "tag_name" | sed "s/[\",tag_name: ]//g")
 echo "latest version is: $release"

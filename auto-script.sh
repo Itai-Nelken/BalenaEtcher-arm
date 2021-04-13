@@ -92,39 +92,43 @@ local=$(curl -s https://api.github.com/repos/Itai-Nelken/Etcher-arm-32-64/releas
 echo "last saved version is: $local"
 release=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep "tag_name" | sed "s/[\",tag_name: ]//g")
 echo "latest version is: $release"
-if [[ "$release" > "$local" ]]; then
-    #compile and package etcher
-    echo "today!"
-    #variables
-    DEPENDS="git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev ruby-dev"
-    install-depends
-    DIR="$HOME/Documents/etcher-build"
-    if [[ ! -d "$DIR" ]]; then
-        mkdir $DIR
+#if latest etcher release isn't the last version compiled (continued)-->
+if [[ "$release" != "$last" ]]; then
+    #--> and the latest etcher release is newer than the latest arm release, compile etcher.
+    if [[ "$release" > "$local" ]]; then
+        #compile and package etcher
+        echo "today!"
+        #variables
+        DEPENDS="git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev ruby-dev"
+        install-depends
+        DIR="$HOME/Documents/etcher-build"
+        if [[ ! -d "$DIR" ]]; then
+            mkdir $DIR
+        fi
+        cd "$DIR"
+        #clone the etcher repo
+        git clone --recursive https://github.com/balena-io/etcher
+        cd "etcher"
+        git checkout $release
+        #install requirements (with pip)
+        pip install -r requirements.txt
+        #setup and install NPM modules
+        make electron-develop
+        #npm start
+
+        ##patch build files##
+        # disable tiffutil in the Makefile as this is a Mac only app and will cause the build to fail
+        sed -i 's/tiffutil/#tiffutil/g' Makefile  || error "Failed to patch Makefile!"
+        sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb appimage"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script to build both a deb and a AppImage!"
+        ##compile and build etcher##
+        # use USE_SYSTEM_FPM="true" to force the use of the installed FPM version
+        USE_SYSTEM_FPM="true" make electron-build  || error "Failed to run \"USE_SYSTEM_FPM="true" make electron-buil\"!"
+        mv $DIR/etcher/dist/*.AppImage $DIR || sudo mv $DIR/etcher/dist/*.AppImage $DIR
+        mv $DIR/etcher/dist/*.deb $DIR || sudo mv $DIR/etcher/dist/*.deb $DIR
+
+        #write new release
+        echo "$release" > local_version.txt
+    else
+        echo "not today :("
     fi
-    cd "$DIR"
-    #clone the etcher repo
-    git clone --recursive https://github.com/balena-io/etcher
-    cd "etcher"
-    git checkout $release
-    #install requirements (with pip)
-    pip install -r requirements.txt
-    #setup and install NPM modules
-    make electron-develop
-    #npm start
-
-    ##patch build files##
-    # disable tiffutil in the Makefile as this is a Mac only app and will cause the build to fail
-    sed -i 's/tiffutil/#tiffutil/g' Makefile  || error "Failed to patch Makefile!"
-    sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb appimage"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script to build both a deb and a AppImage!"
-    ##compile and build etcher##
-    # use USE_SYSTEM_FPM="true" to force the use of the installed FPM version
-    USE_SYSTEM_FPM="true" make electron-build  || error "Failed to run \"USE_SYSTEM_FPM="true" make electron-buil\"!"
-    mv $DIR/etcher/dist/*.AppImage $DIR || sudo mv $DIR/etcher/dist/*.AppImage $DIR
-    mv $DIR/etcher/dist/*.deb $DIR || sudo mv $DIR/etcher/dist/*.deb $DIR
-
-    #write new release
-    echo "$release" > local_version.txt
-else
-    echo "not today :("
 fi

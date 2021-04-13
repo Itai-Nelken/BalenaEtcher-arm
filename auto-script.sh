@@ -85,8 +85,10 @@ if [[ "$ARCH" == "armv7l" ]] || [[ "$ARCH" == "armhf" ]] || [[ "$ARCH" == "arm64
 else
     error "Unsuported architecture! this script is only intended to be run on linux arm devices."
 fi
-local=$(cat local_version.txt)
-#local="v1.5.116" #newest: v1.5.117
+
+last="$(cat local_version.txt)"
+echo "last build was: $last"
+local=$(curl -s https://api.github.com/repos/Itai-Nelken/Etcher-arm-32-64/releases/latest | grep "tag_name" | sed "s/[\",tag_name: ]//g")
 echo "last saved version is: $local"
 release=$(curl -s https://api.github.com/repos/balena-io/etcher/releases/latest | grep "tag_name" | sed "s/[\",tag_name: ]//g")
 echo "latest version is: $release"
@@ -120,9 +122,9 @@ if [[ "$release" > "$local" ]]; then
     USE_SYSTEM_FPM="true" make electron-build  || error "Failed to run \"USE_SYSTEM_FPM="true" make electron-buil\"!"
     mv $DIR/etcher/dist/*.AppImage $DIR || sudo mv $DIR/etcher/dist/*.AppImage $DIR
     mv $DIR/etcher/dist/*.deb $DIR || sudo mv $DIR/etcher/dist/*.deb $DIR
+
+    #write new release
+    echo "$release" > local_version.txt
 else
     echo "not today :("
 fi
-
-#write new release
-echo "$release" > local_version.txt

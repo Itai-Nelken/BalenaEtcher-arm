@@ -47,7 +47,7 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
 ------------ | ------------- | ------------- | ------------- |
 |1.5.63 | very old and outdated version but tested and working reliably.<br>not recommended, use only when other versions don't work. | working | not tested,<br>will probably work. |
 |1.5.116 |  | works | works |
-|1.5.117 | | N/A | N/A |
+|1.5.118 | | yes | yes |
 <details>
 <summary>Rest of the table above (click to expand)</summary>
 <br>
@@ -59,6 +59,7 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
 | 1.5.113 |  | working | working |
 | 1.5.114 |  | works | works |
 | 1.5.115 |  | works | works |
+|1.5.117 | | yes | yes |
 
 </details>
 

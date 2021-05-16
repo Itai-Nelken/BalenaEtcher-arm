@@ -5,6 +5,7 @@
 
 #variables
 DEPENDS="git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev ruby-dev"
+ETCHER_VER="v1.5.120"
 
 ###functions###
 function error() {
@@ -174,7 +175,7 @@ clear -x
 #else
 #    git checkout v$ETCHER_VER || error "Failed to checkout version \"v$ETCHER_VER\"!"
 #fi
-git checkout v1.5.117
+git checkout $ETCHER_VER
 #install requirements (with pip)
 pip install -r requirements.txt
 #setup and install NPM modules

@@ -7,52 +7,61 @@ on:
   pull_request:
     branches: [ main ]
     paths-ignore: [README.md]
-    
+
 jobs:
-  build-arm64:
+  build:
     runs-on: ubuntu-latest
-    name: Build-arm64 
     steps:
-      - uses: actions/checkout@v2
-      - uses: darsvador/run-on-arch-action@v1.0.10
-        with:
-          architecture: aarch64
-          distribution: ubuntu20.04
-          run: |
-            dir="$(pwd)"
-            mkdir -p build/tree
-            cd build
-            DEBIAN_FRONTEND=noninteractive apt update
-            DEBIAN_FRONTEND=noninteractive apt install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-setuptools libudev-dev ruby-dev python3-pip curl tree
-            tree
-            tree > $dir/build/tree/tree1.txt
-            sudo gem install fpm -v 1.10.2 --no-document
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-            nvm install node --latest-npm
-            npm install -g npm@6.14.8
-            git clone --recursive https://github.com/balena-io/etcher
-            cd etcher
-            git checkout git checkout $(git describe --abbrev=0 --tags)
-            pip install -r requirements.txt
-            tree
-            tree > $dir/build/tree/tree2.txt
-            make electron-develop
-            tree
-            tree > $dir/build/tree/tree3.txt
-            USE_SYSTEM_FPM="true" make electron-build
-      - name: gen-date
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: save working directory in variable 'DIR'
+        run: echo "DIR=$(pwd)" >> $GITHUB_ENV
+
+      - name: save current date to the 'DATE' variable
         run: echo "DATE=$(date +"%F")" >> $GITHUB_ENV
-      #- name: upload
-        #uses: actions/upload-artifact@v2
-        #with:
-          #name: balena-etcher-electron_arm64_${{ env.DATE }}
-          #path: build/etcher/dist/balena-etcher-electron*
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt -y install git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev ruby-dev
+          sudo gem install fpm -v 1.10.2 --no-document
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+      - name: clone etcher repo and checkout latest release
+        run: |
+          cd $DIR
+          git clone --recursive https://github.com/balena-io/etcher
+          cd etcher
+          git chekout $(git describe --abbrev=0 --tags)
+
+      - name: Build
+        run: |
+          cd $DIR/etcher
+          pip install -r requirements.txt
+          make electron-develop
+          USE_SYSTEM_FPM=true npx electron-builder --linux deb --arm64
+          USE_SYSTEM_FPM=true npx electron-builder --linux rpm --arm64
+          USE_SYSTEM_FPM=true npx electron-builder --linux appimage --arm64
+          echo "DEB=$(basename "dist/balena-etcher*.deb")" >> $GITHUB_ENV
+          echo "RPM=$(basename "dist/balena-etcher*.rpm")" >> $GITHUB_ENV
+          echo "APPIMAGE=$(basename "dist/balena-etcher*.AppImage")" >> $GITHUB_ENV
+
+      - name: prepare-upload
+        run: |
+          cd $DIR/
+          mkdir etcher-arm64_$DATE/
+          mv dist/$DEB etcher-arm64_$DATE/
+          mv dist/$RPM etcher-arm64_$DATE/
+          mv dist/$APPIMAGE etcher-arm64_$DATE/
+
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: tree_${{ env.DATE }}
-          path: build/tree
-          
+          name: etcher-arm64_${{ env.DATE }}
+          path: ${{ env.DIR }}/etcher-arm64_${{ env.DATE }}/
+

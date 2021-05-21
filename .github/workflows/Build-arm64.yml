@@ -20,7 +20,14 @@ jobs:
           distribution: ubuntu20.04
           run: |
             DEBIAN_FRONTEND=noninteractive apt update
-            DEBIAN_FRONTEND=noninteractive apt install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-setuptools libudev-dev ruby-dev python3-pip
+            DEBIAN_FRONTEND=noninteractive apt install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-setuptools libudev-dev ruby-dev python3-pip curl
+            sudo gem install fpm -v 1.10.2 --no-document
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+            nvm install node --latest-npm
+            npm install -g npm@6.14.8
             git clone --recursive https://github.com/balena-io/etcher
             cd etcher
             git checkout git checkout $(git describe --abbrev=0 --tags)

@@ -48,9 +48,9 @@ jobs:
           USE_SYSTEM_FPM=true npx electron-builder --linux deb --arm64
           USE_SYSTEM_FPM=true npx electron-builder --linux rpm --arm64
           USE_SYSTEM_FPM=true npx electron-builder --linux appimage --arm64
-          echo "DEB=$(basename dist/balena-etcher_$TAG_arm64.deb)" >> $GITHUB_ENV
-          echo "RPM=$(basename dist/balena-etcher-$TAG.aarch64.rpm)" >> $GITHUB_ENV
-          echo "APPIMAGE=$(basename dist/balenaEtcher-$TAG-arm64.AppImage)" >> $GITHUB_ENV
+          echo "DEB=$(basename dist/balena-etcher_${{ env.TAG }}_arm64.deb)" >> $GITHUB_ENV
+          echo "RPM=$(basename dist/balena-etcher-${{ env.TAG }}.aarch64.rpm)" >> $GITHUB_ENV
+          echo "APPIMAGE=$(basename dist/balenaEtcher-${{ env.TAG }}-arm64.AppImage)" >> $GITHUB_ENV
 
       - name: prepare-upload
         run: |

@@ -56,9 +56,9 @@ jobs:
         run: |
           cd $DIR/
           mkdir etcher-arm64_$DATE/
-          mv dist/$DEB etcher-arm64_$DATE/
-          mv dist/$RPM etcher-arm64_$DATE/
-          mv dist/$APPIMAGE etcher-arm64_$DATE/
+          mv etcher/dist/$DEB etcher-arm64_$DATE/
+          mv etcher/dist/$RPM etcher-arm64_$DATE/
+          mv etcher/dist/$APPIMAGE etcher-arm64_$DATE/
 
       - name: upload
         uses: actions/upload-artifact@v2

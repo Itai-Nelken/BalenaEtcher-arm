@@ -20,7 +20,7 @@ jobs:
           distribution: ubuntu20.04
           run: |
             DEBIAN_FRONTEND=noninteractive apt update
-            DEBIAN_FRONTEND=noninteractive apt install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev ruby-dev
+            DEBIAN_FRONTEND=noninteractive apt install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-setuptools libudev-dev ruby-dev python3-pip
             git clone --recursive https://github.com/balena-io/etcher
             cd etcher
             git checkout git checkout $(git describe --abbrev=0 --tags)

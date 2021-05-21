@@ -23,8 +23,9 @@ jobs:
             mkdir -p build/tree
             cd build
             DEBIAN_FRONTEND=noninteractive apt update
-            DEBIAN_FRONTEND=noninteractive apt install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-setuptools libudev-dev ruby-dev python3-pip curl exa
-            exa --tree > $dir/build/tree/tree1.txt
+            DEBIAN_FRONTEND=noninteractive apt install -y git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-setuptools libudev-dev ruby-dev python3-pip curl tree
+            tree
+            tree > $dir/build/tree/tree1.txt
             sudo gem install fpm -v 1.10.2 --no-document
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
             export NVM_DIR="$HOME/.nvm"
@@ -36,15 +37,22 @@ jobs:
             cd etcher
             git checkout git checkout $(git describe --abbrev=0 --tags)
             pip install -r requirements.txt
-            exa --tree > $dir/build/tree/tree2.txt
+            tree
+            tree > $dir/build/tree/tree2.txt
             make electron-develop
-            exa --tree > $dir/build/tree/tree3.txt
+            tree
+            tree > $dir/build/tree/tree3.txt
             USE_SYSTEM_FPM="true" make electron-build
       - name: gen-date
         run: echo "DATE=$(date +"%F")" >> $GITHUB_ENV
+      #- name: upload
+        #uses: actions/upload-artifact@v2
+        #with:
+          #name: balena-etcher-electron_arm64_${{ env.DATE }}
+          #path: build/etcher/dist/balena-etcher-electron*
       - name: upload
         uses: actions/upload-artifact@v2
         with:
-          name: balena-etcher-electron_arm64_${{ env.DATE }}
-          path: etcher/dist/balena-etcher-electron*
+          name: tree_${{ env.DATE }}
+          path: build/tree
           

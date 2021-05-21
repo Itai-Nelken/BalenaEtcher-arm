@@ -1,4 +1,4 @@
-name: Build-arm64
+name: Build-armhf
 
 on:
   push:

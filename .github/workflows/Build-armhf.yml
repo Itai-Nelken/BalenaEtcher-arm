@@ -1,0 +1,62 @@
+name: Build-arm64
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore: [README.md]
+  pull_request:
+    branches: [ main ]
+    paths-ignore: [README.md]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: save working directory in variable 'DIR'
+        run: echo "DIR=$(pwd)" >> $GITHUB_ENV
+
+      - name: save current date to the 'DATE' variable
+        run: echo "DATE=$(date +"%F")" >> $GITHUB_ENV
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt -y install git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python3-pip python-setuptools libudev-dev ruby-dev
+          sudo gem install fpm -v 1.10.2 --no-document
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+      - name: clone etcher repo and checkout latest release
+        run: |
+          cd $DIR
+          git clone --recursive https://github.com/balena-io/etcher
+          cd etcher
+          git checkout $(git describe --abbrev=0 --tags)
+          echo "TAG=$(git describe --abbrev=0 --tags | sed 's/v//')" >> $GITHUB_ENV
+      - name: Build
+        run: |
+          cd $DIR/etcher
+          pip install -r requirements.txt
+          make electron-develop
+          USE_SYSTEM_FPM=true npx electron-builder --linux deb --armv7l
+          USE_SYSTEM_FPM=true npx electron-builder --linux rpm --armv7l
+          USE_SYSTEM_FPM=true npx electron-builder --linux appimage --armv7l
+          echo "DEB=$(basename dist/balena-etcher_${{ env.TAG }}_armv7l.deb)" >> $GITHUB_ENV
+          echo "RPM=$(basename dist/balena-etcher-${{ env.TAG }}.armv7l.rpm)" >> $GITHUB_ENV
+          echo "APPIMAGE=$(basename dist/balenaEtcher-${{ env.TAG }}-armv7l.AppImage)" >> $GITHUB_ENV
+      - name: prepare-upload
+        run: |
+          cd $DIR/
+          mkdir etcher-armv7l_$DATE/
+          mv etcher/dist/$DEB etcher-armv7l_$DATE/
+          mv etcher/dist/$RPM etcher-armv7l_$DATE/
+          mv etcher/dist/$APPIMAGE etcher-armv7l_$DATE/
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: etcher-armv7l_${{ env.DATE }}
+          path: ${{ env.DIR }}/etcher-armv7l_${{ env.DATE }}/

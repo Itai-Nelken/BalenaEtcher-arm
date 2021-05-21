@@ -37,7 +37,7 @@ jobs:
           cd $DIR
           git clone --recursive https://github.com/balena-io/etcher
           cd etcher
-          git chekout $(git describe --abbrev=0 --tags)
+          git checkout $(git describe --abbrev=0 --tags)
 
       - name: Build
         run: |

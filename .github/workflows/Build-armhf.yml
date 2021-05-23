@@ -42,11 +42,9 @@ jobs:
           cd $DIR/etcher
           pip install -r requirements.txt
           make electron-develop
-          USE_SYSTEM_FPM=true npx electron-builder --linux deb --armv7l
-          USE_SYSTEM_FPM=true npx electron-builder --linux rpm --armv7l
-          USE_SYSTEM_FPM=true npx electron-builder --linux appimage --armv7l
-          echo "DEB=$(basename dist/balena-etcher_${{ env.TAG }}_armv7l.deb)" >> $GITHUB_ENV
-          echo "RPM=$(basename dist/balena-etcher-${{ env.TAG }}.armv7l.rpm)" >> $GITHUB_ENV
+          USE_SYSTEM_FPM=true make electron-build
+          echo "DEB=$(basename dist/balena-etcher-electron_${{ env.TAG }}_armv7l.deb)" >> $GITHUB_ENV
+          echo "RPM=$(basename dist/balena-etcher-electron-${{ env.TAG }}.armv7l.rpm)" >> $GITHUB_ENV
           echo "APPIMAGE=$(basename dist/balenaEtcher-${{ env.TAG }}-armv7l.AppImage)" >> $GITHUB_ENV
       - name: prepare-upload
         run: |

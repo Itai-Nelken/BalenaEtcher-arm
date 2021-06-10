@@ -1,12 +1,7 @@
 name: Build-armhf
 
 on:
-  push:
-    branches: [ main ]
-    paths-ignore: [README.md]
-  pull_request:
-    branches: [ main ]
-    paths-ignore: [README.md]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,6 +9,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
 
       - name: save working directory in variable 'DIR'
         run: echo "DIR=$(pwd)" >> $GITHUB_ENV
@@ -26,10 +26,7 @@ jobs:
           sudo apt update
           sudo apt -y install git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python3-pip python-setuptools libudev-dev ruby-dev
           sudo gem install fpm -v 1.10.2 --no-document
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+          
       - name: clone etcher repo and checkout latest release
         run: |
           cd $DIR

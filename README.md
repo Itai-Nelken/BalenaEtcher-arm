@@ -6,10 +6,10 @@ balena-etcher v1.5.109 and later compiled from [source](https://github.com/balen
 
 
 ## Install
-there are 3 ways to get this version of etcher:
-1) [RECOMENDED] Use Pi-Apps (click the badge below for more info about pi-apps) <br> 
+There are 3 ways to get this version of etcher:
+1) [RECOMMENDED]: Use Pi-Apps (click the badge below for more info) <br> 
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)  
-2) install it manually: 
+2) Install it manually: 
   - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armhf is 32bit arm and arm64 is 64bit arm).
   - open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 
   ```bash
@@ -19,12 +19,12 @@ there are 3 ways to get this version of etcher:
   >**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
 3) Use the great `apt` repo for the Raspberry Pi by [**@chunky-milk**](https://github.com/chunky-milk/): https://chunky-milk.github.io/raspbian-addons/
 
-## compile etcher yourself
+## Compile Etcher yourself:
 
 Use my compile scripts, they simply run the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md).
-the first script compiles the newest version (1.5.117), you can run it by copying and pasting the following line in terminal:
+the first script compiles the newest version (1.5.121), you can run it by copying and pasting the following line in terminal:
 ```bash
-wget -q https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.117.sh; bash compile-etcher_v1.5.117.sh; rm compile-etcher_v1.5.117.sh 
+wget -q https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.121.sh; bash compile-etcher_v1.5.121.sh; rm compile-etcher_v1.5.121.sh 
 ```
 the second script asks you what version you want to compile, you can run it by copying and pasting the following line in terminal:
 ```bash
@@ -37,10 +37,10 @@ git checkout v1.5.63
 ```
 with this line:
 ```bash
-git checkout v1.5.117
+git checkout v1.5.121
 ```
-so you compile v1.5.117 (newest) instead of v1.5.63.
->**NOTE:**<br>you can put any version you want instead of `1.5.117`, refer to the [table below](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
+so you compile v1.5.121 (newest) instead of v1.5.63.
+>**NOTE:**<br>you can put any version you want instead of `1.5.121`, refer to the [table below](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
 
 ### recommended version numbers for the script:
 version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
@@ -69,9 +69,9 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
 </details>
 
 ## Uninstall
-If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), then you can also uninstall it from there.If you want to manually uninstall,run the following in terminal:
+If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), then you can also uninstall it from there .If you want to manually uninstall,run the following in terminal:
 ```bash
-$ sudo apt purge balena-etcher-electron
+sudo apt purge balena-etcher-electron
 ```
 
 ## Credits

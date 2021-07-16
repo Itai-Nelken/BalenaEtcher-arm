@@ -8,16 +8,16 @@ balena-etcher v1.5.109 and later compiled from [source](https://github.com/balen
 ## Install
 There are 3 ways to get this version of etcher:
 1) [RECOMMENDED]: Use Pi-Apps (click the badge below for more info) <br> 
-[![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)  
-2) Install it manually: 
-  - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armhf is 32bit arm and arm64 is 64bit arm).
+[![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps) 
+2) Use the balenaetcher-debs repository, which is automatically updated for each new release: https://github.com/chunky-milk/balenaetcher-debs
+3) Install it manually: 
+  - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armv7l is 32bit arm and arm64 is 64bit arm).
   - open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 
   ```bash
   sudo apt install -y --fix-broken the-file-name.deb
   ```
   but replace `the-file-name.deb` with the name of the .deb file you downloaded or path to it (E.G. ~/Downloads/balena-etcher-electron_1.5.116+37769efb_armv7l.deb) .
   >**explanation:**<br> the `-y` flag tells `apt` to answer yes to all questions,<br> `--fix-broken` tells `apt` to install any needed dependencies.
-3) Use the great `apt` repo for the Raspberry Pi by [**@chunky-milk**](https://github.com/chunky-milk/): https://chunky-milk.github.io/raspbian-addons/
 
 ## Compile Etcher yourself:
 

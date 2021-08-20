@@ -27,7 +27,7 @@ REPODIR="/home/pi/Documents/balenaetcher-debs/"
 
 if [[ "$last" != "$release" ]]; then
         rm -rf $PKGDIR/*
-        LATEST=`curl -s https://api.github.com/repos/Itai-Nelken/Etcher-arm-32-64/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")' | tr -d 'v'`
+        LATEST=$(curl -s https://api.github.com/repos/Itai-Nelken/Etcher-arm-32-64/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")' | tr -d 'v')
         curl -s https://api.github.com/repos/Itai-Nelken/Etcher-arm-32-64/releases/latest \
           | grep browser_download_url \
           | grep 'armv7l.deb"' \
@@ -39,7 +39,7 @@ if [[ "$last" != "$release" ]]; then
           | grep 'arm64.deb"' \
           | cut -d '"' -f 4 \
           | xargs -n 1 curl -L -o $PKGDIR/balena-etcher-electron-$LATEST-arm64.deb
-        COMPLETE=`curl -s https://api.github.com/repos/Itai-Nelken/Etcher-arm-32-64/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")'`
+        COMPLETE=$(curl -s https://api.github.com/repos/Itai-Nelken/Etcher-arm-32-64/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
         echo $COMPLETE > /home/pi/cronscripts/etcher/local_version.txt
         cd $PKGDIR
         dpkg-scanpackages --multiversion . > Packages

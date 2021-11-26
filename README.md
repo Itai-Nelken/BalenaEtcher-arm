@@ -22,9 +22,9 @@ There are 3 ways to get this version of etcher:
 ## Compile Etcher yourself:
 
 Use my compile scripts, they simply run the instructions found [here](https://github.com/futurejones/balena-etcher-arm/blob/master/etcher-build/BUILD.md).
-the first script compiles the newest version (1.5.121), you can run it by copying and pasting the following line in terminal:
+the first script compiles the newest version (v1.7.0), you can run it by copying and pasting the following line in terminal:
 ```bash
-wget -q https://raw.githubusercontent.com/Itai-Nelken/Etcher-arm-32-64/main/compile-etcher_v1.5.121.sh; bash compile-etcher_v1.5.121.sh; rm compile-etcher_v1.5.121.sh 
+wget -q https://github.com/Itai-Nelken/Etcher-arm-32-64/raw/main/compile-etcher_v1.7.0.sh; bash compile-etcher_v1.7.0.sh; rm compile-etcher_v1.7.0.sh 
 ```
 the second script asks you what version you want to compile, you can run it by copying and pasting the following line in terminal:
 ```bash
@@ -37,17 +37,16 @@ git checkout v1.5.63
 ```
 with this line:
 ```bash
-git checkout v1.5.121
+git checkout v1.7.0
 ```
-so you compile v1.5.121 (newest) instead of v1.5.63.
->**NOTE:**<br>you can put any version you want instead of `1.5.121`, refer to the [table below](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
+so you compile v1.7.0 (latest) instead of v1.5.63.
+>**NOTE:**<br>you can put any version you want instead of `1.7.0`, refer to the [table below](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
 
 ### recommended version numbers for the script:
 version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
 ------------ | ------------- | ------------- | ------------- |
 |1.5.63 | very old and outdated version but tested and working reliably.<br>not recommended, use only when other versions don't work. | works | not tested,<br>will probably work. |
-|1.5.119 |  | works | works |
-|1.5.120 | | works | N/A |
+|1.7.0 | latest version. | works | works |
 <details>
 <summary>Rest of the table above (click to expand)</summary>
 <br>
@@ -65,11 +64,15 @@ version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |
 | 1.5.117 | | works | works |
 | 1.5.118 | | works | works |
 | 1.5.119 | | works | works |
+|1.5.120 | | works | works |
+|1.5.121 | | works | works |
+|1.5.122 | | works | works |
+|1.6.0 | | works | works |
 
 </details>
 
 ## Uninstall
-If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), then you can also uninstall it from there .If you want to manually uninstall,run the following in terminal:
+If you installed from [Pi-Apps](https://github.com/Botspot/pi-apps), then you can also uninstall it from there. If you want to manually uninstall, run the following in terminal:
 ```bash
 sudo apt purge balena-etcher-electron
 ```

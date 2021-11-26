@@ -9,7 +9,7 @@ balena-etcher v1.5.109 and later compiled from [source](https://github.com/balen
 There are 3 ways to get this version of etcher:
 1) [RECOMMENDED]: Use Pi-Apps (click the badge below for more info) <br> 
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps) 
-2) Use the balenaetcher-debs repository, which is automatically updated for each new release: https://github.com/ryanfortner/balenaetcher-debs
+2) Use the Raspbian Addons repository: https://raspbian-addons.org/
 3) Install it manually: 
   - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armv7l is 32bit arm and arm64 is 64bit arm).
   - open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 

@@ -167,7 +167,6 @@ cd "$DIR"
 #clone the etcher repo
 git clone --recursive https://github.com/balena-io/etcher
 cd etcher
-clear -x
 #get version of etcher to compile and check it out (using git)
 #read -p "Enter Etcher version to compile (newest: v1.5.117)" ETCHER_VER
 #if [[ $ETCHER_VER == v* ]]; then

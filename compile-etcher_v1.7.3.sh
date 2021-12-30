@@ -5,7 +5,7 @@
 
 #variables
 DEPENDS="git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev ruby-dev"
-ETCHER_VER="v1.7.1"
+ETCHER_VER="v1.7.3"
 
 ###functions###
 function error() {
@@ -66,7 +66,7 @@ function install-node() {
         echo -e "\033[0;31mcurl: command not found.\n\e[39m You need to install curl first. If you are on a debian system, this command should install it: \e[4msudo apt install curl\e[0m"
         exit 1
     fi
-    curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+    curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
     sudo apt install -y nodejs
 }
 

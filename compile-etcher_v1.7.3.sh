@@ -202,12 +202,12 @@ done
 
 ##patch build files##
 # disable tiffutil in the Makefile as this is a Mac only app and will cause the build to fail
-sed -i 's/tiffutil/#tiffutil/g' Makefile  || error "Failed to patch Makefile!"
+#sed -i 's/tiffutil/#tiffutil/g' Makefile  || error "Failed to patch Makefile!"
 
 sleep 1
 clear -x
 while true; do
-    echo -ne "\e[1mDo you want to build a .(d)eb, a (A)ppimage or both [d/A/b]?\e[0m"
+    echo -ne "\e[1mDo you want to build a .(d)eb, an (A)ppimage or both [d/A/b]?\e[0m"
     read answer
     if [[ "$answer" =~ [dD] ]]; then
     echo -n "patching build.sh to build only a .deb..."
@@ -224,8 +224,8 @@ while true; do
     echo "done"
     break
     elif [[ "$answer" =~ [bB] ]]; then
-    echo -n "patching build.sh to build both a .deb and AppImage..."
-    sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb appimage"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script to build both a deb and a AppImage!"
+    echo -n "building both a deb and appimage..."
+    #sed -i 's/TARGETS="deb rpm appimage"/TARGETS="deb appimage"/g' scripts/resin/electron/build.sh || error "Failed to patch 'build.sh' script to build both a deb and a AppImage!"
     out=all
     echo "done"
     break

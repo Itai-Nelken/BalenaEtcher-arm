@@ -11,7 +11,7 @@ There are 3 ways to get this version of etcher:
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps) 
 2) Use the Raspbian Addons repository: https://raspbian-addons.org/
 3) Install it manually: 
-  - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armv7l is 32bit arm and arm64 is 64bit arm), or you can download the latest arm64 build [here](https://artifacts.raspbian-addons.org/artifacts/balena-etcher-electron/).
+  - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armv7l is 32bit arm and arm64 is 64bit arm)
   - open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 
   ```bash
   sudo apt install -y --fix-broken the-file-name.deb

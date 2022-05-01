@@ -5,7 +5,7 @@
 
 #variables
 DEPENDS="git python gcc g++ make libx11-dev libxkbfile-dev fakeroot rpm libsecret-1-dev jq python2.7-dev python-pip python-setuptools libudev-dev ruby-dev"
-ETCHER_VER="v1.7.3"
+ETCHER_VER="v1.7.9"
 
 ###functions###
 function error() {

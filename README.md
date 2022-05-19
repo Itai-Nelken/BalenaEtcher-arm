@@ -1,4 +1,4 @@
-# <img src="/screenshots/balena-etcher.png" alt="etcher-logo" width="60"/>Etcher-arm-32-64
+# <img src="/screenshots/balena-etcher.png" alt="etcher-logo" width="60"/>BalenaEtcher-arm
 balena-etcher v1.5.109 and later compiled from [source](https://github.com/balena-io/etcher) for armhf and arm64 for the [Raspberry Pi](https://www.raspberrypi.org) and other [ARM](https://en.wikipedia.org/wiki/ARM_architecture) based [Linux](https://en.wikipedia.org/wiki/Linux) computers.
 >NOTE: This only works on Debian and Debian based OS's like Ubuntu.
 
@@ -11,7 +11,7 @@ There are 3 ways to get this version of etcher:
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps) 
 2) Use the Raspbian Addons repository: https://raspbian-addons.org/
 3) Install it manually: 
-  - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/Etcher-arm-32-64/releases/latest) (armv7l is 32bit arm and arm64 is 64bit arm)
+  - download the .deb file for your system architecture from the [latest release](https://github.com/Itai-Nelken/BalenaEtcher-arm/releases/latest) (armv7l is 32bit arm and arm64 is 64bit arm)
   - open the .deb file with a package installer (just double click it) if you have one installed, or open terminal in the directory where the .deb file is and type 
   ```bash
   sudo apt install -y --fix-broken the-file-name.deb
@@ -40,7 +40,7 @@ with this line:
 git checkout v1.7.0
 ```
 so you compile v1.7.0 (latest) instead of v1.5.63.
->**NOTE:**<br>you can put any version you want instead of `1.7.0`, refer to the [table below](https://github.com/Itai-Nelken/Etcher-arm-32-64#recommended-version-numbers-for-the-script).
+>**NOTE:**<br>you can put any version you want instead of `1.7.0`, refer to the [table below](https://github.com/Itai-Nelken/BalenaEtcher-arm#recommended-version-numbers-for-the-script).
 
 ### recommended version numbers for the script:
 version number | notes | compilation armhf/armv7l | compilation arm64/aarch64 |

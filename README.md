@@ -1,3 +1,4 @@
+# WARNING: This repository is unmaintained. Please use [pi-apps](https://pi-apps.io/) to get the latest version.
 # <img src="/screenshots/balena-etcher.png" alt="etcher-logo" width="60"/>BalenaEtcher-arm
 balena-etcher v1.5.109 and later compiled from [source](https://github.com/balena-io/etcher) for armhf and arm64 for the [Raspberry Pi](https://www.raspberrypi.org) and other [ARM](https://en.wikipedia.org/wiki/ARM_architecture) based [Linux](https://en.wikipedia.org/wiki/Linux) computers.
 >NOTE: This only works on Debian and Debian based OS's like Ubuntu.
